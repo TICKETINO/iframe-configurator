@@ -1,0 +1,112 @@
+<!--
+  _                _                 _                _                _     _               _     
+ | |              (_)               (_)              | |              (_)   | |             | |    
+ | |__   ___ _ __  _  __ _ _ __ ___  _ _ __  ___  ___| |__  _ __   ___ _  __| | ___ _ __ ___| |__  
+ | '_ \ / _ \ '_ \| |/ _` | '_ ` _ \| | '_ \/ __|/ __| '_ \| '_ \ / _ \ |/ _` |/ _ \ '__/ __| '_ \ 
+ | |_) |  __/ | | | | (_| | | | | | | | | | \__ \ (__| | | | | | |  __/ | (_| |  __/ |_| (__| | | |
+ |_.__/ \___|_| |_| |\__,_|_| |_| |_|_|_| |_|___/\___|_| |_|_| |_|\___|_|\__,_|\___|_(_)\___|_| |_|
+                 _/ |                                                                              
+                |__/                                                                                                                                    
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TICKETINO IFrame Configurator</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-colorpicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js" integrity="sha256-owX7sroiO/O1a7h3a4X29A1g3QgqdNvijRQ7V5TH45M=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-colorpicker.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="row content">
+			<div class="col-md-3 settings-column">
+				<div class="col-md-12">
+					<h4>Event Settings</h4>
+					<div class="form-group">
+						<label for="eventID">Event ID</label>
+						<input type="text" class="form-control" id="eventID" placeholder="12345" data-bind="value: eventId">
+					</div>
+					<div class="form-group">
+						<label for="language">Language</label>
+						<select class="form-control" id="language" data-bind="value: languageCode">
+							<option value="de">German</option>
+							<option value="en">English</option>
+							<option value="fr">French</option>
+							<option value="it">Italian</option>
+						</select>
+					</div>
+					<hr>
+					<div class="header"><h4>&#x25BC; Basic Styles</h4></div>
+					<div class="content">
+						<div class="form-group">
+							<label for="color">Text</label>
+							<input class="form-control" type="text" id="color" data-bind="value: color">
+						</div>
+					    <div class="form-group">
+						    <label for="backgroundColor">Background</label>
+						    <input class="form-control" type="text" id="backgroundColor" data-bind="value: backgroundColor">
+					    </div>
+					</div>
+					
+					<div class="header"><h4>&#x25BC; Buttons</h4></div>
+					<div class="content">
+					    <div class="form-group">
+						    <label for="buttonBackColor">Button Background</label>
+						    <input class="form-control" type="text" id="buttonBackColor" data-bind="value: buttonBackColor">
+					    </div>
+					    <div class="form-group">
+						    <label for="buttonForeColor">Button Text</label>
+						    <input class="form-control" type="text" id="buttonForeColor" data-bind="value: buttonForeColor">
+					    </div>
+					    <div class="form-group">
+						    <label for="buttonHoverBackColor">Button Background (Mouseover)</label>
+						    <input class="form-control" type="text" id="buttonHoverBackColor" data-bind="value: buttonHoverBackColor">
+					    </div>
+					    <div class="form-group">
+						    <label for="buttonHoverForeColor">Button Text (Mouseover)</label>
+						    <input class="form-control" type="text" id="buttonHoverForeColor" data-bind="value: buttonHoverForeColor">
+					    </div>
+				    </div>
+				    <div class="header"><h4>&#x25BC; Dropdowns</h4></div>
+				    <div class="content">
+					    <div class="form-group">
+						    <label for="dropdownForeColor">Dropdown Text</label>
+						    <input class="form-control" type="text" id="dropdownForeColor" data-bind="value: dropdownForeColor">
+					    </div>
+					    <div class="form-group">
+						    <label for="dropdownBackColor">Dropdown Background</label>
+						    <input class="form-control" type="text" id="dropdownBackColor" data-bind="value: dropdownBackColor">
+					    </div>
+				    </div>
+				    <div class="header"><h4>&#x25BC; Promocode Box</h4></div>
+				    <div class="content">
+					    <div class="form-group">
+						    <label for="promoBoxColor">Promocode Box Background</label>
+						    <input class="form-control" type="text" id="promoBoxColor" data-bind="value: promoBoxColor">
+					    </div>
+				    </div>
+				    <hr>
+				    <h4>Code</h4>
+				    <div class="output">
+				    	<pre data-bind="text: iframeCode" id="iframe-code-output"></pre>
+				    </div>
+				</div>
+			</div>
+			<div class="col-md-9 preview-column">
+			    <div class="browser-mockup with-url" id="preview-window">
+					<div id="preview-content">
+						<iframe data-bind="attr: { src: iframeSrc }" frameborder="0" width="700" height="450"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+</body>
+</html>

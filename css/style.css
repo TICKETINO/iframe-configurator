@@ -1,0 +1,119 @@
+/* BASE LAYOUT */
+
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 992px) {
+    html,
+    body,
+    .content,
+    .settings-column,
+    .preview-column {
+        height: 100%;
+    }
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+
+/* CUSTOM STYLES */
+
+hr {
+    border-top: 1px solid #FFF;
+}
+
+h4 {
+    color: #ee7325;
+}
+
+.settings-column {
+    background-color: #EDEDED;
+    overflow: auto;
+}
+
+.header h4 {
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.settings-column .content {
+    display: none;
+}
+
+.preview-column {
+    background-color: #000;
+}
+
+#preview-window {
+    width: 700px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #FFF;
+}
+
+.output {
+    cursor: pointer;
+}
+
+
+/* BROWSER MOCKUPS */
+/* Source: https://codepen.io/adrienjarthon/pen/ogjjoj */
+
+.browser-mockup {
+    border-top: 2em solid rgba(230, 230, 230, 0.7);
+    box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+    position: relative;
+    border-radius: 3px 3px 0 0
+}
+
+.browser-mockup:before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -1.25em;
+    left: 1em;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: #f44;
+    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+}
+
+.browser-mockup.with-tab:after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -2em;
+    left: 5.5em;
+    width: 20%;
+    height: 0em;
+    border-bottom: 2em solid white;
+    border-left: 0.8em solid transparent;
+    border-right: 0.8em solid transparent;
+}
+
+.browser-mockup.with-url:after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -1.6em;
+    left: 5.5em;
+    width: calc(100% - 6em);
+    height: 1.2em;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.browser-mockup > * {
+    display: block;
+}
