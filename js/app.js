@@ -44,7 +44,7 @@ $(document).ready(function() {
 function ViewModel() {
 	var self = this;
 
-	self.baseURL				= ko.observable("https://www.ticketino.com/v3/");
+	self.baseURL				= ko.observable("https://v3.ticketino.com/v3/");
 	self.embedURL				= ko.observable("/Event/Embed/");
 
 	self.languageCode 			= ko.observable("de");
