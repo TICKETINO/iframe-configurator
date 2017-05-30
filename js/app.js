@@ -65,15 +65,15 @@ function ViewModel() {
     			self.embedURL() +
     			self.eventId() +
     			"/?" +
-			    "color="					+ self.color() +
-			    "&backgroundColor="			+ self.backgroundColor() +
-			    "&buttonBackColor="			+ self.buttonBackColor() +
-			    "&buttonForeColor="			+ self.buttonForeColor() +
-			    "&promoBoxColor="			+ self.promoBoxColor() +
-			    "&buttonHoverForeColor="	+ self.buttonHoverForeColor() +
-			    "&buttonHoverBackColor="	+ self.buttonHoverBackColor() +
-			    "&dropdownBackColor="		+ self.dropdownBackColor() +
-			    "&dropdownForeColor="		+ self.dropdownForeColor();
+			    "color="					+ self.color().replace("#", "") +
+			    "&backgroundColor="			+ self.backgroundColor().replace("#", "") +
+			    "&buttonBackColor="			+ self.buttonBackColor().replace("#", "") +
+			    "&buttonForeColor="			+ self.buttonForeColor().replace("#", "") +
+			    "&promoBoxColor="			+ self.promoBoxColor().replace("#", "") +
+			    "&buttonHoverForeColor="	+ self.buttonHoverForeColor().replace("#", "") +
+			    "&buttonHoverBackColor="	+ self.buttonHoverBackColor().replace("#", "") +
+			    "&dropdownBackColor="		+ self.dropdownBackColor().replace("#", "") +
+			    "&dropdownForeColor="		+ self.dropdownForeColor().replace("#", "");
     });
 
     self.iframeCode = ko.computed(function() {
