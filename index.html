@@ -41,6 +41,19 @@
 						</select>
 					</div>
 					<hr>
+
+					<div class="header"><h4>&#x25BC; Size</h4></div>
+					<div class="content">
+						<div class="form-group">
+							<label for="width">Width</label>
+							<input class="form-control" type="text" id="width" data-bind="value: width">
+						</div>
+					    <div class="form-group">
+						    <label for="height">Height</label>
+						    <input class="form-control" type="text" id="height" data-bind="value: height">
+					    </div>
+					</div>
+
 					<div class="header"><h4>&#x25BC; Basic Styles</h4></div>
 					<div class="content">
 						<div class="form-group">
@@ -98,9 +111,9 @@
 				</div>
 			</div>
 			<div class="col-md-9 preview-column">
-			    <div class="browser-mockup with-url" id="preview-window">
+			    <div class="browser-mockup with-url" id="preview-window" data-bind="style: { width: width() + 'px', height: height() + 'px' }">
 					<div id="preview-content">
-						<iframe data-bind="attr: { src: iframeSrc }" frameborder="0" width="700" height="450"></iframe>
+						<iframe data-bind="attr: { src: iframeSrc, width: width, height: height }" frameborder="0"></iframe>
 					</div>
 				</div>
 			</div>

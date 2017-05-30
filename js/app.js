@@ -21,25 +21,6 @@ function selectText(containerid) {
     }
 }
 
-// Initialize colorpickers
-$(document).ready(function() {
-	var opts = {
-		format: "hex"
-	};
-
-	$('#color').colorpicker(opts);
-    $('#backgroundColor').colorpicker(opts);
-    $('#buttonBackColor').colorpicker(opts);
-    $('#buttonForeColor').colorpicker(opts);
-    $('#promoBoxColor').colorpicker(opts);
-    $('#buttonHoverForeColor').colorpicker(opts);
-    $('#buttonHoverBackColor').colorpicker(opts);
-    $('#dropdownBackColor').colorpicker(opts);
-    $('#dropdownForeColor').colorpicker(opts);
-
-    $('#iframe-code-output').click(selectText);
-});
-
 // Knockout viewmodel
 function ViewModel() {
 	var self = this;
@@ -58,6 +39,8 @@ function ViewModel() {
     self.buttonHoverBackColor 	= ko.observable("").extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
     self.dropdownBackColor 		= ko.observable("").extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
     self.dropdownForeColor 		= ko.observable("").extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
+    self.width                  = ko.observable(700).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
+    self.height                 = ko.observable(450).extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
 
     self.iframeSrc = ko.computed(function() {
     	return 	self.baseURL() +
@@ -77,8 +60,28 @@ function ViewModel() {
     });
 
     self.iframeCode = ko.computed(function() {
-    	return	'<iframe src="' + self.iframeSrc() + '" width="700" height="450"></iframe>';
+    	return	'<iframe src="' + self.iframeSrc() + '" width="' + self.width() + '" height="' + self.height() + '"></iframe>';
     });
 }
 
-ko.applyBindings(new ViewModel());
+var vm = new ViewModel();
+ko.applyBindings(vm);
+
+// Initialize colorpickers & resizing
+$(document).ready(function() {
+    var opts = {
+        format: "hex"
+    };
+
+    $('#color').colorpicker(opts);
+    $('#backgroundColor').colorpicker(opts);
+    $('#buttonBackColor').colorpicker(opts);
+    $('#buttonForeColor').colorpicker(opts);
+    $('#promoBoxColor').colorpicker(opts);
+    $('#buttonHoverForeColor').colorpicker(opts);
+    $('#buttonHoverBackColor').colorpicker(opts);
+    $('#dropdownBackColor').colorpicker(opts);
+    $('#dropdownForeColor').colorpicker(opts);
+
+    $('#iframe-code-output').click(selectText);
+});
