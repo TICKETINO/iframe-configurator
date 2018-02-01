@@ -99,6 +99,7 @@ function ViewModel() {
         if (self.buttonHoverBackColor() != '') { cfgUrl += 'buttonHoverBackColor=' + self.buttonHoverBackColor().replace("#", "") + '&' }
         if (self.dropdownBackColor() != '') { cfgUrl += 'dropdownBackColor=' + self.dropdownBackColor().replace("#", "") + '&' }
         if (self.dropdownForeColor() != '') { cfgUrl += 'dropdownForeColor=' + self.dropdownForeColor().replace("#", "") + '&' }
+        if (String(self.additionalInformation()) != 'false') { cfgUrl += 'showAdditionalInformation=' + String(self.additionalInformation()).replace("#", "") + '&' }        
 
         if (cfgUrl.slice(-1) === '&') { cfgUrl = cfgUrl.slice(0, -1); }
 
