@@ -40,6 +40,9 @@ function ViewModel() {
     self.width                  = ko.observable(qs('width') || 700);
     self.height                 = ko.observable(qs('height') || 450);
 
+    self.additionalInformation  = ko.observable(qs('additionalInformation') || false).
+                                    extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
+
     self.color 					= ko.observable(qs('color') || "").
                                     extend({ rateLimit: { timeout: 500, method: "notifyWhenChangesStop" } });
     self.backgroundColor 		= ko.observable(qs('backgroundColor') || "").
@@ -65,15 +68,16 @@ function ViewModel() {
     			self.embedURL() +
     			self.eventId() +
     			"/?" +
-			    "color="					+ self.color().replace("#", "") +
-			    "&backgroundColor="			+ self.backgroundColor().replace("#", "") +
-			    "&buttonBackColor="			+ self.buttonBackColor().replace("#", "") +
-			    "&buttonForeColor="			+ self.buttonForeColor().replace("#", "") +
-			    "&promoBoxColor="			+ self.promoBoxColor().replace("#", "") +
-			    "&buttonHoverForeColor="	+ self.buttonHoverForeColor().replace("#", "") +
-			    "&buttonHoverBackColor="	+ self.buttonHoverBackColor().replace("#", "") +
-			    "&dropdownBackColor="		+ self.dropdownBackColor().replace("#", "") +
-			    "&dropdownForeColor="		+ self.dropdownForeColor().replace("#", "");
+			    "color="					    + self.color().replace("#", "") +
+			    "&backgroundColor="			    + self.backgroundColor().replace("#", "") +
+			    "&buttonBackColor="			    + self.buttonBackColor().replace("#", "") +
+			    "&buttonForeColor="			    + self.buttonForeColor().replace("#", "") +
+			    "&promoBoxColor="			    + self.promoBoxColor().replace("#", "") +
+			    "&buttonHoverForeColor="	    + self.buttonHoverForeColor().replace("#", "") +
+			    "&buttonHoverBackColor="	    + self.buttonHoverBackColor().replace("#", "") +
+			    "&dropdownBackColor="		    + self.dropdownBackColor().replace("#", "") +
+                "&dropdownForeColor="		    + self.dropdownForeColor().replace("#", "") +
+                "&showAdditionalInformation="	+ self.additionalInformation();                
     });
 
     self.iframeCode = ko.computed(function() {
