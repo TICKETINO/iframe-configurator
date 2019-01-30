@@ -32,7 +32,7 @@ function selectText(containerid) {
 function ViewModel() {
 	var self = this;
 
-	self.baseURL				= ko.observable("https://v3.ticketino.com/v3/");
+	self.baseURL				= ko.observable("https://ticketino.com/");
 	self.embedURL				= ko.observable("/Event/Embed/");
 
 	self.languageCode 			= ko.observable(qs('languageCode') || "de");
